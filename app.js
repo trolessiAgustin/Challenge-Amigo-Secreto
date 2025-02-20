@@ -3,7 +3,6 @@
 // Creo la lista
 let amigos = [];
 
-
 // Creo una funcion para Asignar textos a elementos del apartado HTML
 function asignarElementoTexto(elemento, texto){
     let elementoHTML = document.querySelector(elemento);
@@ -28,36 +27,41 @@ function añadirAmigo(){
      document.getElementById("amigo").value = ""; // Se vacia la linea de texto donde insertamos el amigo
 
     console.log(amigoSecreto);
-    actualizarListaAmigos();
+    actualizarListaAmigos(); //Muestra y actualiza en pantalla la lista de amigos
 }
 
+//Desarrollamos la funcion para Sortear los Amigos
 function sortearAmigo(){
 
-    let sortearAmigo = parseInt(Math.floor(Math.random()*amigos.length));
+/*Elijo un elemento al azar de la lista con el formato Math.Random para seleccionar la posicion 
+y guardarlo previamente en una variable*/
+    let sortearAmigo = parseInt(Math.floor(Math.random()*amigos.length)); 
     let amigoSorteado = amigos[sortearAmigo];
-    asignarElementoTexto('#resultado', amigoSorteado);
+    asignarElementoTexto('#resultado', amigoSorteado); //Imprimo el amigo sorteado
 
     if(amigos.length === 0){
+        //Si ya no hay amigos por sortear, actualiza y muestra un mensaje
         asignarElementoTexto('#resultado', "No hay amigos por Sortear");
         asignarElementoTexto('#listaAmigos', "");
     }   
-     let pos = amigos.indexOf(amigoSorteado);
+    //Elimino el elemento de la lista con .splice
      let eleminarElemento = amigos.splice(sortearAmigo, 1);
+     //Actualizo la lista en pantalla, si no hay ningun elemento en la lista de amigos no muestra nada
      actualizarListaAmigos();
-
-    console.log(amigoSorteado);
-    console.log(amigos);
-
 }
 
-
+//Desarrollo la funcion para ir actualizando la lista de amigos en Pantalla
 function actualizarListaAmigos() {
-    asignarElementoTexto('#listaAmigos', ""); //Limpio la lista anterior
+    //Limpio la lista de amigos
+    asignarElementoTexto('#listaAmigos', "");
 
     for (let i = 0; i < amigos.length; i++) {
-        let nuevoElemento = document.createElement("li"); // Creo un nuevo elemento <li>
-        nuevoElemento.textContent = amigos[i]; // Asigno el nombre del amigo nuevo agregado
-        listaAmigos.appendChild(nuevoElemento); // Agrego el <li> a la lista
+        // Creo un nuevo elemento <li>
+        let nuevoElemento = document.createElement("li"); 
+        // Asigno el nombre del amigo nuevo agregado
+        nuevoElemento.textContent = amigos[i]; 
+        // Agrego el <li> a la lista
+        listaAmigos.appendChild(nuevoElemento); 
     }
 }
 
