@@ -6,7 +6,7 @@ Este es un proyecto para gestionar un juego del **Amigo Secreto**. Permite ingre
 ## Características
 
 - Agregar participantes
-- Sortear automáticamente las parejas de Amigo Secreto
+- Sortear manualmente el Amigo Secreto
 - Ver los resultados del sorteo
 
 ## Requisitos
