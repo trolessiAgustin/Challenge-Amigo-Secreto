@@ -38,7 +38,7 @@ function sortearAmigo(){
     asignarElementoTexto('#resultado', amigoSorteado);
 
     if(amigos.length === 0){
-        asignarElementoTexto('#resultado', "Todos los amigos fueron sorteados");
+        asignarElementoTexto('#resultado', "No hay amigos por Sortear");
         asignarElementoTexto('#listaAmigos', "");
     }   
      let pos = amigos.indexOf(amigoSorteado);
